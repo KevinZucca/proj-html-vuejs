@@ -4,17 +4,31 @@ export default {
     data() {
         return {
             name: "AppHeaderJumbo",
-
         }
     },
 
     components: {
     },
+
+    methods: {
+        nextPicture() {
+            document.querySelector("#jumbo-carousel").scrollBy({
+            left: -550, 
+            behavior: "smooth"
+            })
+        },
+    }
 }
 </script>
 
 <template>
     <div class="main-container">
+        <div id="jumbo-carousel">
+            <img class="jumbo-img" src="/public/img/rev-slider-main-home-img-03.jpg" alt="jumbo-img">
+            <img class="jumbo-img" src="/public/img/rev-slider-main-home-img-02.png" alt="jumbo-img">
+        </div>
+        
+        <!-- NAVBAR -->
         <nav>
             <div id="logo">
                 <a href="#"><img src="/public/img/logo-img-01.png" alt="nav-logo"></a>
@@ -32,12 +46,20 @@ export default {
             </ul>
         </div>
         </nav>
+        <!-- //NAVBAR -->
+
+        
+        <!-- LEFT ARROW SLIDER -->
         <div class="arrow left-arrow">
             <a href="#">&leftarrow;</a>
         </div>
+        <!-- //LEFT ARROW SLIDER -->
+
+
+        <!-- JUMBO MAIN CONTENT -->
         <div id="intro" class="container">
-            <h1>Our Team<span id="dot">.</span></h1>
-            <p id="intro-parag">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam.</p>
+            <h1>Our Team<span class="orange-dot">.</span></h1>
+            <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam.</p>
             <div id="buttons-container">
                 <button>
                     <p>READ MORE</p>
@@ -49,39 +71,59 @@ export default {
                 </button>
             </div>
         </div>
-        <div class="arrow right-arrow">
+        <!--//JUMBO MAIN CONTENT  -->
+
+
+        <!-- RIGHT ARROW SLIDER -->
+        <div @click="nextPicture()" class="arrow right-arrow">
             <a href="#">&rightarrow;</a>
         </div>
+        <!-- //RIGHT ARROW SLIDER -->
+
     </div>
 </template>
 
 <style scoped lang="scss">
     .main-container {
-        height: 800px;
+        height: 750px;
 
         flex-flow: column;  
         gap: 250px;  
         position: relative;
 
-        padding: 0 50px;
+        padding: 0;
 
-        background-image: url("/public/img/rev-slider-main-home-img-03.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        #jumbo-carousel {
+            display: flex;
+            flex-flow: row nowrap;
+
+            width: 200vw;
+            height: 100%;
+
+            pointer-events: none;
+
+            .jumbo-img {
+                width: 2500px;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
 
         nav {
             width: 100%;
             height: 75px;
-            
+            padding: 20px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             font-weight: 500;
 
+            position: absolute;
+
                 #logo img {
-                    width: 70px;
+                    width: 120px;
                 }
 
                 ul {
@@ -99,24 +141,20 @@ export default {
             }
 
         #intro {
-            max-width: 750px;
+            max-width: 600px;
             font-size: 1.5em;
 
-            padding: 0 100px;
+            position: absolute;
+            top: 60%;
+            left: 30%;
+            transform: translate(-50%, -50%);
 
-            #dot {
-                color: #ff4612;
-            }
 
             h1 {
                 font-size: 3em;
                 font-weight: 600;
 
                 font-family: serif;
-            }
-
-            #intro-parag {
-                color: #a6a6a6;
             }
 
             #buttons-container {
@@ -157,9 +195,11 @@ export default {
         .arrow {
             position: absolute;
 
+            font-size: 20px;
+
             & a {
                 text-decoration: none;
-                color: black;
+                color: #6a6a6a;
 
                 font-size: 2em;
             }

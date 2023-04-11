@@ -11,10 +11,17 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+
+  background-color: #fafafa;
 }
 
 .main-container {
@@ -26,6 +33,14 @@
 
 ul {
   list-style-type: none;
+}
+
+.orange-dot {
+  color: #ff4612;
+}
+
+.subtitle {
+  color: #a6a6a6;
 }
 
 
