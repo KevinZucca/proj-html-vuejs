@@ -1,3 +1,5 @@
+// RESET
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -9,6 +11,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+img {
+  pointer-events: none;
 }
 
 
@@ -31,6 +37,17 @@ body {
   padding: 20px;
 }
 
+.container-centered {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// /RESET
+
+
+
+
+
 ul {
   list-style-type: none;
 }
@@ -39,8 +56,30 @@ ul {
   color: #ff4612;
 }
 
+.grey-text {
+  color: #bdbdbd;
+}
+
+
+
+
+
+// TITLES SETTINGS
+
+.title {
+  font-family: serif;
+}
+
 .subtitle {
   color: #a6a6a6;
 }
+
+.small-title {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+// /// TITLES SETTINGS
 
 

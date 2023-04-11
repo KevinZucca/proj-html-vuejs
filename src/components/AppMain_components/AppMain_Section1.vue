@@ -38,12 +38,12 @@ export default {
             <h2>Our specialties<span class="orange-dot">.</span></h2>
             <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
-        <div id="our-mansions">
+        <div id="our-mansions" class="container-centered">
             <div class="card" v-for="card in cards">
                 <div class="logo">
                     <img :src="card.logo" alt="logo">
                 </div>
-                <div class="title">
+                <div class="small-title">
                     {{card.title}}
                 </div>
                 <div class="subtitle">
@@ -90,11 +90,19 @@ export default {
 
         #our-mansions {
             display: flex;
-            gap: 10px;
+            gap: 150px;
         }
 
         .card {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+
             width: calc(100% / 4);
+
+            .subtitle{
+                max-width: 200px;
+            }
         }
 
     }
