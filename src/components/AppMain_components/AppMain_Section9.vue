@@ -5,7 +5,13 @@ export default {
     data() {
         return {
             name: "AppMain_Section9",
-
+            logos: [
+                "/public/img/h4-clients-img-03.png",
+                "/public/img/h4-clients-img-05.png",
+                "/public/img/h4-clients-img-07.png",
+                "/public/img/h4-clients-img-09.png",
+                "/public/img/h4-clients-img-01.png",
+            ],
         }
     },
 }
@@ -13,16 +19,31 @@ export default {
 
 <template>
    <div class="main-container">
-    Nineth section of main
+    <div class="container-centered">
+        <div class="logo" v-for="logo in logos">
+        <img :src="logo" alt="logo"></div>
+    </div>
    </div>
 </template>
 
-<style scoped>
+<style  lang="scss">
     .main-container {
         width: 100%;
+        height: 200px;
 
-        height: 100px;
+        background-color: #fafafafa;
 
-        background-color: rgba(164, 169, 167, 0.662);
+        .container-centered {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 120px;
+
+            .logo {
+            height: 100%;
+            width: calc(100% / 5);
+        }
+        }
+       
     }
 </style>
