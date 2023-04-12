@@ -7,8 +7,7 @@ export default {
             name: "AppMain_Section5",
             businessCards: [ 
                 {
-                    picture1: "/public/img/h1-blog-img-02.jpg",
-                    picture2: "/public/img/h1-blog-img-03.jpg",
+                    picture1: "/public/img/h1-blog-img-01.jpg",
                     time: "May 5, 2019",
                     person: "Amanda Doe",
                     name: "Next investment",
@@ -16,8 +15,7 @@ export default {
                     moreInfo: "READ MORE",
                 },
                 {
-                    picture1: "/public/img/h1-blog-img-03.jpg",
-                    picture2: "/public/img/h1-blog-img-01.jpg",
+                    picture1: "/public/img/h1-blog-img-02.jpg",
                     time: "May 5, 2019",
                     person: "Amanda Doe",
                     name: "Team Building",
@@ -25,11 +23,18 @@ export default {
                     moreInfo: "READ MORE",
                 },
                 {
-                    picture1: "/public/img/h1-blog-img-01.jpg",
-                    picture2: "/public/img/h1-blog-img-02.jpg",
+                    picture1: "/public/img/h1-blog-img-03.jpg",
                     time: "May 5, 2019",
                     person: "Amanda Doe",
                     name: "New Business Day",
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seid eius mas tellus dolor ...",
+                    moreInfo: "READ MORE",
+                },
+                {
+                    picture1: "/public/img/h1-blog-img-04.jpg",
+                    time: "May 5, 2019",
+                    person: "Amanda Doe",
+                    name: "Project Reunions",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seid eius mas tellus dolor ...",
                     moreInfo: "READ MORE",
                 }
@@ -42,6 +47,13 @@ export default {
 
 <template>
    <div class="main-container">
+        <div class="left-arrow arrow">
+            &leftarrow;
+        </div>
+        <div class="right-arrow arrow">
+            &rightarrow;
+        </div>
+
         <div class="container-centered">
             <div id="comment">
                 <div class="title">
@@ -55,14 +67,26 @@ export default {
             <div id="business-container">
                 <div class="card" v-for="business in businessCards">
                     <div class="img-container">
-                        <img class="up-img" :src="business.picture1" alt="up-img">
-                        <img class="down-img" :src="business.picture2" alt="down-img">
+                        <img :src="business.picture1" alt="up-img">
+                        <div class="sticker">
+                            <span><i class="fa-solid fa-tag"></i></span>
+                            <p>Business, Leading</p>
+                        </div>
                     </div>
-        
-                    <div id="time" class="subtitle"></div> <span class="subtitle"></span>
-                    <div class="title"></div>
-                    <div class="subtitle"></div>
-                    <div class="more-info"></div>
+                    
+                    <div class="card-text">
+                        <div class="info">
+                            <span class="clock"><i class="fa-regular fa-clock"></i></span>
+                            <p class="time subtitle">{{ business.time }}</p>
+                            <span class="user"><i class="fa-regular fa-user"></i></span>
+                            <p class="person subtitle">{{ business.person }}</p>
+                        </div>
+                       
+                        <h3 class="title">{{ business.name }}</h3>
+                        <p class="subtitle">{{ business.description }}</p>
+                        <strong>{{ business.moreInfo }}</strong>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -72,10 +96,29 @@ export default {
 <style scoped lang="scss">
     .main-container {
         width: 100%;
-        height: 600px;
+        height: 650px;
 
-        background-color: rgb(244, 198, 112);
+        background-color: #fafafa;
+        margin-bottom: 50px;
         padding-top: 0;
+
+        position: relative;
+
+        .arrow {
+            font-size: 30px;
+            position: absolute;
+            cursor: pointer;
+
+            &.left-arrow {
+                top: 50%;
+                left: 10px;
+            }
+
+            &.right-arrow {
+                top: 50%;
+                right: 10px;
+            }
+        }
 
         .container-centered {
             flex-flow: column;
@@ -114,35 +157,62 @@ export default {
 
                 width: 100%;
                 height: 70%;
+                overflow-x: scroll;
 
                 .card {
                     display: flex;
                     flex-flow: column;
         
-                    width: 30%;
-                    height: 100%;
-                    background-color: white;
+                    width: 31%;
 
                     .img-container {
                         display: flex;
                         flex-flow: column;
 
                         width: 100%;
-                        height: 900px;
+                        position: relative;
 
-                        .up-img {
-                            height: 150px;
-                            object-fit: cover;
-                            overflow: hidden;
+                        .sticker {
+                            display: flex;
+                            gap: 5px;
+                            background-color: #ff4612;
+                            color: white;
+
+                            position: absolute;
+                            bottom: -10px;
+                            right: 15px;
+
+                            padding: 10px;
+                        }
+                    }
+
+                    .card-text {
+                        display: flex;
+                        flex-flow: column;
+
+                        padding: 10px 0;
+
+
+                        .info {
+                            display: flex;
+                            align-items: center;
+
+                            font-size: 1em;
+
+                            p {
+                                margin-right: 10px;
+                            }
+
+                            i {
+                                font-size: .8em;
+                                margin-right: 5px;
+                                color: #ff4612;
+                            }
                         }
 
-                        .down-img {
-                            height: 150px;
-                            object-fit: cover;
-                            overflow: hidden;
+                        .title {
+                            font-size: 1.3em;
                         }
-
-
                     }
                 }
             }
