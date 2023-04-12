@@ -65,6 +65,11 @@ ul {
   color: white;
 }
 
+.orange-button {
+  background-color: #ff4612;
+  color: white;
+}
+
 
 
 
@@ -96,5 +101,23 @@ ul {
 .arrow {
   font-size: 30px;
   cursor: pointer;
+}
+
+button {
+  width: 130px;
+  height: 35px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+  border: none;
+
+  padding: 8px;
+  background-color: white;
+
+  font-size: 0.4em;
+
 }
 

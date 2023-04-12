@@ -27,8 +27,6 @@ export default {
         width: 100%;
         height: 800px;
 
-        background-color: rgba(104, 234, 195, 0.662);
-
         padding: 0;
         position: relative;
 
@@ -38,6 +36,7 @@ export default {
 
             width: 100%;
             height: 100%;
+
 
             img {
                 width: 100%;

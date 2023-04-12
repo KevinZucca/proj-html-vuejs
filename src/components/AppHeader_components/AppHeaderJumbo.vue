@@ -164,26 +164,7 @@ export default {
                 padding: 30px 0;
 
                 button {
-                    width: 130px;
-                    height: 35px;
-                    
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-
-                    cursor: pointer;
-                    border: none;
-
-                    padding: 8px;
-                    background-color: white;
-
-                    font-size: 0.4em;
-
-                    &.orange-button {
-                        background-color: #ff4612;
-                        color: white;
-                    }
-
+                   
                     p {
                         width: 80%;
                         border-right: 0.5px solid;
