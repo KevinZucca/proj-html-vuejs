@@ -4,19 +4,39 @@ export default {
     data() {
         return {
             name: "AppHeaderJumbo",
+            photos: [
+                "/public/img/rev-slider-main-home-img-02.png",
+                "/public/img/rev-slider-main-home-img-03.jpg",
+            ],
+
+            maiIndex: 0,
         }
     },
 
-    components: {
+    methods: {
+        prevPicture() {
+            this.maiIndex--;
+            if(this.maiIndex < 0 ){
+                this.maiIndex = this.photos.length - 1;
+            }
+        },
+
+        nextPicture() {
+            this.maiIndex++;
+            if(this.maiIndex >= this.photos.length){
+                this.maiIndex = 0;
+            }
+        },
+
+        reloadPage() {
+            window.location.reload()
+        },
     },
 
-    methods: {
-        nextPicture() {
-            document.querySelector("#jumbo-carousel").scrollBy({
-            left: -550, 
-            behavior: "smooth"
-            })
-        },
+    mounted() {
+        setInterval(() => {
+            this.nextPicture()
+        }, 4000);
     }
 }
 </script>
@@ -24,13 +44,12 @@ export default {
 <template>
     <div class="main-container">
         <div id="jumbo-carousel">
-            <img class="jumbo-img" src="/public/img/rev-slider-main-home-img-03.jpg" alt="jumbo-img">
-            <img class="jumbo-img" src="/public/img/rev-slider-main-home-img-02.png" alt="jumbo-img">
+            <img class="jumbo-img" :src="this.photos[maiIndex]" alt="jumbo-img">
         </div>
         
         <!-- NAVBAR -->
         <nav>
-            <div id="logo">
+            <div id="logo" @click="reloadPage()">
                 <a href="#"><img src="/public/img/logo-img-01.png" alt="nav-logo"></a>
             </div>
         <div id="links">
@@ -50,7 +69,7 @@ export default {
 
         
         <!-- LEFT ARROW SLIDER -->
-        <div class="arrow left-arrow">
+        <div @click="prevPicture()" class="arrow left-arrow">
             <a href="#">&leftarrow;</a>
         </div>
         <!-- //LEFT ARROW SLIDER -->
@@ -97,13 +116,13 @@ export default {
             display: flex;
             flex-flow: row nowrap;
 
-            width: 200vw;
+            width: 100%;
             height: 100%;
 
             pointer-events: none;
 
             .jumbo-img {
-                width: 2500px;
+                width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
@@ -137,6 +156,11 @@ export default {
                 a {
                     text-decoration: none;
                     color: black;
+                    transition: .2s color ease-in;
+
+                    &:hover {
+                        color: #ff4612;
+                    }
                 }
             }
 
@@ -164,11 +188,15 @@ export default {
                 padding: 30px 0;
 
                 button {
-                   
                     p {
                         width: 80%;
                         border-right: 0.5px solid;
                     }
+
+                    &:hover p {
+                        border-right: none;
+                    }
+
                 }
             }
         }

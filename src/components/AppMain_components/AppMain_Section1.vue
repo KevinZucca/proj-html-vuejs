@@ -100,6 +100,10 @@ export default {
 
             width: calc(100% / 4);
 
+            .logo {
+                width: 100%;
+            }
+
             .subtitle{
                 max-width: 200px;
             }

@@ -21,7 +21,10 @@ export default {
                     name: "Amanda Graph",
                     cit: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor indicididunt ut labore et dolore magna aliqua",
                 },
-            ]
+            ],
+
+            mainIndex: 0,
+
 
         }
     },
@@ -32,7 +35,12 @@ export default {
             left: 650, 
             behavior: "smooth"
             })
-            console.log("cliccato")
+
+            this.mainIndex++
+            if(this.mainIndex >= this.profiles.length){
+                this.mainIndex = 0
+            }
+            console.log(this.mainIndex)
         },
 
         slideToRight() {
@@ -40,9 +48,14 @@ export default {
             left: -650, 
             behavior: "smooth"
             })
-            console.log("cliccato")
-        }
-    }
+            this.mainIndex--
+            if(this.mainIndex < 0){
+                this.mainIndex = 2
+            }
+            console.log(this.mainIndex)
+        },
+
+    },
 }
 </script>
 
@@ -57,12 +70,12 @@ export default {
 
     <div class="container-centered">
         <div class="card-container">
-            <div class="card" v-for="profile in profiles">
+            <div class="card" v-for="(profile,index) in profiles" :key="index">
                 <div class="profile-img">
-                    <img :src="profile.img" alt="profile-img">
+                    <img :src="profiles[this.mainIndex].img" alt="profile-img">
                 </div>
-                <h4 class="name title white-text">{{ profile.name }}</h4>
-                <p class="cit subtitle">"{{ profile.cit }}""</p>
+                <h4 class="name title white-text">{{ profiles[this.mainIndex].name }}</h4>
+                <p class="cit subtitle">"{{ profiles[this.mainIndex].cit }}"</p>
             </div>
         </div>
     </div>

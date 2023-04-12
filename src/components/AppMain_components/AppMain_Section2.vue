@@ -5,9 +5,43 @@ export default {
     data() {
         return {
             name: "AppMain_Section2",
+            team: [
+                {
+                    name: "Janeth Xyn",
+                    role: "Public Aministrator",
+                    img: "public/img/h1-img-02.jpg",
+                },
+                {
+                    name: "Carla Sparks",
+                    role: "Expert in Relationship",
+                    img: "public/img/h1-img-01.jpg",
+                },
+                {
+                    name: "Jason Bickford",
+                    role: "Founder and Executive Director",
+                    img: "public/img/h1-img-03.jpg",
+                },
+            ],
 
+            mainIndex: 0,
         }
     },
+
+    methods:  {
+        nextPhoto() {
+            this.mainIndex++
+            if(this.mainIndex >= this.team.length){
+                this.mainIndex = 0;
+            }
+        },
+
+        prevPhoto() {
+            this.mainIndex--
+            if(this.mainIndex < 0){
+                this.mainIndex = 2;
+            }
+        }
+    }
 }
 </script>
 
@@ -15,18 +49,18 @@ export default {
    <div class="main-container">
     <div class="container-centered">
         <div id="photo">
-            <img src="public/img/h1-img-01.jpg" alt="individual-reunion-img">
+            <img :src="team[mainIndex].img" alt="individual-reunion-img">
             <div id="arrows">
-                <p>&leftarrow;</p>
-                <p>&rightarrow;</p>
+                <p @click="prevPhoto()">&leftarrow;</p>
+                <p @click="nextPhoto()">&rightarrow;</p>
             </div>
         </div>
         <div id="comment">
             <div class="title">
-                <h2>Jason Bickford</h2>
+                <h2>{{ team[mainIndex].name }}</h2>
             </div>
             <div class="subtitle">
-                <p>Founder and Executive Director</p>
+                <p>{{ team[mainIndex].role }}</p>
             </div>
             <div class="description">
                 <p class="grey-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati dolorum nesciunt exercitationem quas, saepe atque. Repudiandae natus</p>
@@ -50,7 +84,7 @@ export default {
 
         background-image: url("public/svg/svg-4.svg");
         background-repeat: no-repeat;
-        background-position: right 200px bottom 80px;
+        background-position: right 200px bottom 100px;
         background-size: 350px;
 
         .container-centered {   
@@ -104,7 +138,7 @@ export default {
                 padding: 50px;
                 height: 350px;
 
-                margin-left: -40px;
+                margin-left: -180px;
                 z-index: 2;
 
                 background-color: #fff;
