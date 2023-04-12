@@ -81,6 +81,7 @@ export default {
         padding: 0;
 
         background-image: url("public/img/h1-img-09.jpg");
+        background-repeat: no-repeat;
     }
 
     .container-centered {
@@ -98,6 +99,8 @@ export default {
             background-color: white;
 
             h3 {
+                font-size: 1.5em;
+                
                 padding: 20px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.237);
                 box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.39);
