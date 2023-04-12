@@ -99,15 +99,19 @@ export default {
         height: 650px;
 
         background-color: #fafafa;
+        background-image: url("/public/svg/svg-4.svg");
+        background-size: 400px;
+        background-repeat: no-repeat;
+        background-position: top -150px left 0;
+
         margin-bottom: 50px;
         padding-top: 0;
 
         position: relative;
 
+
         .arrow {
-            font-size: 30px;
             position: absolute;
-            cursor: pointer;
 
             &.left-arrow {
                 top: 50%;
