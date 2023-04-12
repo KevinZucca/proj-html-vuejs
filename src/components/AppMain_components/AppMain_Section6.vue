@@ -25,21 +25,39 @@ export default {
 
         }
     },
+
+    methods: {
+        slideToLeft() {
+            document.querySelector(".card-container").scrollBy({
+            left: 650, 
+            behavior: "smooth"
+            })
+            console.log("cliccato")
+        },
+
+        slideToRight() {
+            document.querySelector(".card-container").scrollBy({
+            left: -650, 
+            behavior: "smooth"
+            })
+            console.log("cliccato")
+        }
+    }
 }
 </script>
 
 <template>
    <div class="main-container">
-    <div class="left-arrow arrow">
+    <div class="left-arrow arrow" @click="slideToRight()">
         &leftarrow;
     </div>
-    <div class="right-arrow arrow">
+    <div class="right-arrow arrow" @click="slideToLeft()">
         &rightarrow;
     </div>
 
     <div class="container-centered">
-        <div class="card-container"  v-for="profile in profiles">
-            <div class="card">
+        <div class="card-container">
+            <div class="card" v-for="profile in profiles">
                 <div class="profile-img">
                     <img :src="profile.img" alt="profile-img">
                 </div>
@@ -54,7 +72,7 @@ export default {
 <style scoped lang="scss">
     .main-container {
         width: 100%;
-        height: 450px;
+        height: 400px;
 
         background-color: #1e1c1c;
         position: relative;
@@ -77,21 +95,28 @@ export default {
         }
 
         .container-centered {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 100px;
+            width: 600px;
 
-            text-align: center;
-            width: 500px;
+            .card-container {
+                height: 70%;
+                
+                display: flex;
+                gap: 50px;
 
-            overflow-x: scroll;
+                overflow-x: hidden;
+
+            }
 
             .card {
-                width: 500px;
-            }
+                width: 600px;
 
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                flex-shrink: 0;
+
+                text-align: center;
             }
         }
+    }
 </style>

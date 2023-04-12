@@ -42,15 +42,31 @@ export default {
 
         }
     },
+
+    methods: {
+        slideToleft() {
+            document.querySelector("#business-container").scrollBy({
+            left: 550, 
+            behavior: "smooth"
+            })
+        },
+
+        slideToRight() {
+            document.querySelector("#business-container").scrollBy({
+            left: -550, 
+            behavior: "smooth"
+            })
+        }
+    }
 }
 </script>
 
 <template>
    <div class="main-container">
-        <div class="left-arrow arrow">
+        <div class="left-arrow arrow" @click="slideToRight()">
             &leftarrow;
         </div>
-        <div class="right-arrow arrow">
+        <div class="right-arrow arrow" @click="slideToleft()">
             &rightarrow;
         </div>
 
@@ -163,7 +179,7 @@ export default {
 
                 width: 100%;
                 height: 70%;
-                overflow-x: scroll;
+                overflow-x: hidden;
 
                 .card {
                     display: flex;
