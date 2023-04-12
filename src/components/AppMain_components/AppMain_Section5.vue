@@ -96,7 +96,7 @@ export default {
 <style scoped lang="scss">
     .main-container {
         width: 100%;
-        height: 650px;
+        height: 700px;
 
         background-color: #fafafa;
         background-image: url("/public/svg/svg-4.svg");
@@ -126,6 +126,8 @@ export default {
 
         .container-centered {
             flex-flow: column;
+            gap: 0;
+            
             width: 100%;
 
 
