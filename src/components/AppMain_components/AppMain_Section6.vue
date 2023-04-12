@@ -59,6 +59,7 @@ export default {
         background-color: #1e1c1c;
         position: relative;
 
+
         .arrow {
             position: absolute;
             color: white;
