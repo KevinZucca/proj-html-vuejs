@@ -32,16 +32,23 @@ export default {
 
     methods: {
         slideToLeft() {
+            let indexBar = document.querySelector("#index-bar");
+
             document.querySelector(".card-container").scrollBy({
             left: 650, 
             behavior: "smooth"
             })
             this.mainIndex++;
             if(this.mainIndex >= this.profiles.length) {
-                this.mainIndex = this.profiles.length - 1
+                this.mainIndex = 0;
+                document.querySelector(".card-container").scrollBy({
+                left: -1350, 
+                behavior: "smooth"
+                })
+                indexBar.style.left = ("0px")
             }
 
-            let indexBar = document.querySelector("#index-bar");
+           
             if(this.mainIndex == 1){
                 indexBar.style.left = ("50px")
             } else if (this.mainIndex == 2){
@@ -67,6 +74,12 @@ export default {
             }
         },
     },
+
+    mounted() {
+        setInterval(() => {
+            this.slideToLeft()
+        }, 4000);
+    }
 }
 </script>
 

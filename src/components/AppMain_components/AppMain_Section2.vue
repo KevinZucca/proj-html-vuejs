@@ -46,7 +46,7 @@ export default {
     mounted() {
         setInterval(() => {
             this.nextPhoto()
-        }, 3500);
+        }, 2000);
     }
 }
 </script>
