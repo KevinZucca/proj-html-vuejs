@@ -36,10 +36,16 @@ export default {
             left: 650, 
             behavior: "smooth"
             })
+            this.mainIndex++;
+            if(this.mainIndex >= this.profiles.length) {
+                this.mainIndex = this.profiles.length - 1
+            }
 
-            this.mainIndex++
-            if(this.mainIndex >= this.profiles.length){
-                this.mainIndex = 0
+            let indexBar = document.querySelector("#index-bar");
+            if(this.mainIndex == 1){
+                indexBar.style.left = ("50px")
+            } else if (this.mainIndex == 2){
+                indexBar.style.left = ("100px")
             }
         },
 
@@ -48,14 +54,19 @@ export default {
             left: -650, 
             behavior: "smooth"
             })
-            this.mainIndex--
-            if(this.mainIndex < 0){
-                this.mainIndex = 2
+            this.mainIndex--;
+            if(this.mainIndex < 0) {
+                this.mainIndex = 0
+            }
+
+            let indexBar = document.querySelector("#index-bar");
+            if(this.mainIndex == 0){
+                indexBar.style.left = ("0px")
+            } else if (this.mainIndex == 1) {
+                indexBar.style.left = ("50px")
             }
         },
-
     },
-
 }
 </script>
 
@@ -77,6 +88,13 @@ export default {
                 <h4 class="name title white-text">{{ profiles[this.mainIndex].name }}</h4>
                 <p class="cit subtitle">"{{ profiles[this.mainIndex].cit }}"</p>
             </div>
+        </div>
+        <div id="index-container">
+            <p>{{ mainIndex + 1}}</p>
+            <div id="bar">
+                <div id="index-bar"></div>
+            </div>
+            <p>3</p>
         </div>
     </div>
    </div>
@@ -109,11 +127,15 @@ export default {
 
         .container-centered {
             width: 600px;
+            flex-flow: column;
+            gap: 0;
 
             .card-container {
                 height: 70%;
+                width: 100%;
                 
                 display: flex;
+                align-items: center;
                 gap: 50px;
 
                 overflow-x: hidden;
@@ -129,6 +151,37 @@ export default {
                 flex-shrink: 0;
 
                 text-align: center;
+            }
+
+            #index-container {
+                display: flex;
+                justify-self: flex-start;
+                justify-content: space-between;
+                align-items: center;
+                gap: 8px;
+                flex-grow: 1;
+
+                color: #bdbdbd;
+
+                #bar {
+                    width: 150px;
+                    height: 3px;
+
+                    background-color: #ffffff2c;
+
+                    border-radius: 2px;
+
+                    #index-bar {
+                        width: 33%;
+                        height: 100%;
+
+                        background-color: rgb(255, 255, 255);
+
+                        position: relative;
+                    }
+                }
+
+                
             }
         }
     }
