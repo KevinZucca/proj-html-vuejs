@@ -116,13 +116,12 @@ export default {
 
         background-image: url("public/img/h1-img-09.jpg");
         background-repeat: no-repeat;
-    }
 
-    .container-centered {
-        display: flex;
-        align-items: center;
+        .container-centered {
+            display: flex;
+            align-items: center;
 
-        width: 100%;
+            width: 100%;
 
         #events {
             display: flex;
@@ -189,4 +188,7 @@ export default {
             }
         }
     }
+
+
+ }
 </style>

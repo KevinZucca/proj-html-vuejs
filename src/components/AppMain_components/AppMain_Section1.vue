@@ -40,7 +40,7 @@ export default {
         </div>
         <div id="our-mansions" class="container-centered">
             <div class="card" v-for="card in cards">
-                <div class="logo">
+                <div class="myLogo">
                     <img :src="card.logo" alt="logo">
                 </div>
                 <div class="small-title">
@@ -100,7 +100,7 @@ export default {
 
             width: calc(100% / 4);
 
-            .logo {
+            .myLogo {
                 width: 100%;
             }
 

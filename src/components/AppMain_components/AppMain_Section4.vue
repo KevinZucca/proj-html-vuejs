@@ -51,7 +51,7 @@ export default {
                         {{ percentage.number }}
                     </div>
                     <div class="bar">
-                        <div class="filled-bar">
+                        <div class="filled-bar" :style="{ width: percentage.number }">
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,15 @@ export default {
                         .filled-bar {
                             height: 100%;
                             background-color: #ff4612;
-                            width: 70%;
+                            
+                            animation: fill 2s;
+
+                            @keyframes fill {
+                                from {
+                                    width: 0%;
+                                } to {
+                                }
+                            }
                         }
                     }
                 }
