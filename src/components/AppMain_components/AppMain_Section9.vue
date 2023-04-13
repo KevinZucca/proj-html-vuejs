@@ -21,7 +21,8 @@ export default {
    <div class="main-container">
     <div class="container-centered">
         <div class="logo" v-for="logo in logos">
-        <img :src="logo" alt="logo"></div>
+            <a href="#"><img :src="logo" alt="logo"></a>
+        </div>
     </div>
    </div>
 </template>
@@ -42,6 +43,13 @@ export default {
             .logo {
             height: 100%;
             width: calc(100% / 5);
+            transition: all .3s ease;
+
+            cursor: pointer;
+
+            &:hover {
+                scale: 1.3;
+            }
         }
         }
        
