@@ -22,9 +22,9 @@ export default {
             </p>
         </div>
         <div id="social-icons">
-            <i class="fa-brands fa-linkedin-in"></i>
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-twitter"></i>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
         </div>
     </div>
 
@@ -69,6 +69,8 @@ export default {
 
             background-color: white;
             color: #181515;
+
+            cursor: pointer;
         }
     }
 </style>

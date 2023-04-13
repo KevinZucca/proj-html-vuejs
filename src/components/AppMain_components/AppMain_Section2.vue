@@ -66,9 +66,9 @@ export default {
                 <p class="grey-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati dolorum nesciunt exercitationem quas, saepe atque. Repudiandae natus</p>
             </div>
             <div id="social-icons">
-                <i class="fa-brands fa-linkedin-in"></i>
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-twitter"></i>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>
     </div>
@@ -177,6 +177,12 @@ export default {
 
                     background-color: #ff4612;
                     color: white;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #1e1e1e;
+                    }
                 }
             }
 

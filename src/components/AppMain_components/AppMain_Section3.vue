@@ -13,6 +13,8 @@ export default {
                     time: "9:00 am - 5:00 pm, Jan 7, 2022",
                     location: "Cambridge, MA 02138, USA",
                     moreInfo: "READ MORE",
+                    img: "public/img/h1-img-07.jpg",
+                    index: 0,
                 },
                 {
                     day: 11,
@@ -21,6 +23,8 @@ export default {
                     time: "9:00 am - 5:00 pm, Jan 11, 2022",
                     location: "Cambridge, MA 02138, USA",
                     moreInfo: "READ MORE",
+                    img: "public/img/h1-img-08.jpg",
+                    index: 1,
                 },
                 {
                     day: 21,
@@ -29,20 +33,50 @@ export default {
                     time: "9:00 am - 5:00 pm, Jan 21, 2022",
                     location: "Cambridge, MA 02138, USA",
                     moreInfo: "READ MORE",
+                    img: "public/img/h1-img-09.jpg",
+                    index: 2,
                 },
-            ]
+            ],
+
+            mainIndex: 0,
 
         }
     },
+
+    methods: {
+        activateElement(index) {
+            let activeElements = document.querySelectorAll(".active");
+            activeElements.forEach(element => {
+                element.classList.remove("active")
+            });
+           
+            let eventElement = document.querySelectorAll(".event")[index];
+             eventElement.classList.add("active")
+            this.mainIndex = index;
+        },
+
+        backgroundImageUrl() {
+            const imageSource = `url(${this.events[this.mainIndex].img})`;
+            document.querySelector('.main-container').style.backgroundImage = imageSource;
+            return imageSource;
+        },
+
+    created() {
+        this.mainIndex = this.events[0].index
+    },
+
+}
+
+
 }
 </script>
 
 <template>
-   <div class="main-container">
+   <div class="main-container" :style="{ 'background-image': backgroundImageUrl() }">
     <div class="container-centered">
         <div id="events">
             <h3 class="title">Upcoming Events</h3>
-            <div class="event" v-for="event in events">
+            <div @click="activateElement(index)" class="event" v-for="(event,index) in events" :key="index">
                 <div class="calendar">
                     <div class="day">
                         {{ event.day }}
@@ -112,6 +146,16 @@ export default {
 
                 border-bottom: 1px solid rgba(0, 0, 0, 0.237);
                 padding: 20px;
+
+                cursor: pointer;
+
+                &.active {
+                    background-color: #fafafa;
+
+                    .title {
+                        color: #ff4612;
+                    }
+                }
 
                 .event-name {
                     font-size: 1.3em;
