@@ -45,14 +45,17 @@ export default {
 
     methods: {
         activateElement(index) {
-            let activeElements = document.querySelectorAll(".active");
-            activeElements.forEach(element => {
-                element.classList.remove("active")
-            });
-           
-            let eventElement = document.querySelectorAll(".event")[index];
-             eventElement.classList.add("active")
-            this.mainIndex = index;
+            setTimeout(() => {
+                let activeElements = document.querySelectorAll(".active");
+                activeElements.forEach(element => {
+                    element.classList.remove("active")
+                });
+            
+                let eventElement = document.querySelectorAll(".event")[index];
+                eventElement.classList.add("active")
+                this.mainIndex = index;
+            }, 300);
+      
         },
 
         backgroundImageUrl() {

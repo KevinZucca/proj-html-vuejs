@@ -135,14 +135,15 @@ export default {
                         .filled-bar {
                             height: 100%;
                             background-color: #ff4612;
-                            animation: fill 2s;
+                            animation: fill 6s infinite;
 
-                            @keyframes fill {
+                                @keyframes fill {
                                 from {
                                     width: 0%;
                                 } to {
                                 }
                             }
+                               
                         }
                     }
 

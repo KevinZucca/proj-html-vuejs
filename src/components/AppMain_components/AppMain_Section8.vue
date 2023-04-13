@@ -167,7 +167,7 @@ export default {
 
                     position: absolute;
                     display: none;
-
+                    
                     &.active {
                         display: block;
                     }
