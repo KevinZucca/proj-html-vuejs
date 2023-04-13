@@ -160,6 +160,7 @@ export default {
 
                     &:hover {
                         color: #ff4612;
+                        text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.295);
                     }
                 }
             }
@@ -172,6 +173,15 @@ export default {
             top: 60%;
             left: 30%;
             transform: translate(-50%, -50%);
+            animation: appear 1.5s ease-in;
+
+            @keyframes appear {
+                from {
+                    opacity: 0%;
+                } to {
+                    opacity: 100%;
+                }
+            }
 
 
             h1 {
@@ -194,9 +204,8 @@ export default {
                     }
 
                     &:hover p {
-                        border-right: none;
+                        border-right: 0px;
                     }
-
                 }
             }
         }

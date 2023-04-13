@@ -76,7 +76,7 @@ export default {
     <div class="container-centered">
         <div id="events">
             <h3 class="title">Upcoming Events</h3>
-            <div @click="activateElement(index)" class="event" v-for="(event,index) in events" :key="index">
+            <div @mouseover="activateElement(index)" class="event" v-for="(event,index) in events" :key="index">
                 <div class="calendar">
                     <div class="day">
                         {{ event.day }}

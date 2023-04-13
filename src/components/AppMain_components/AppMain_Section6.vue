@@ -1,5 +1,6 @@
 <script>
 
+
 export default {
 
     data() {
@@ -40,7 +41,6 @@ export default {
             if(this.mainIndex >= this.profiles.length){
                 this.mainIndex = 0
             }
-            console.log(this.mainIndex)
         },
 
         slideToRight() {
@@ -52,10 +52,10 @@ export default {
             if(this.mainIndex < 0){
                 this.mainIndex = 2
             }
-            console.log(this.mainIndex)
         },
 
     },
+
 }
 </script>
 

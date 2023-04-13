@@ -41,6 +41,12 @@ export default {
                 this.mainIndex = 2;
             }
         }
+    },
+
+    mounted() {
+        setInterval(() => {
+            this.nextPhoto()
+        }, 3500);
     }
 }
 </script>

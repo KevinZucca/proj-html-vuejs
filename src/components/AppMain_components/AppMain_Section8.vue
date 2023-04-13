@@ -136,6 +136,10 @@ export default {
                         width: 80%;
                         border-right: 0.5px solid;
                     }
+
+                    &:hover p {
+                        border-right: 0px;
+                    }
                 }
 
                 input {

@@ -111,6 +111,9 @@ button {
   align-items: center;
   justify-content: space-between;
 
+  transition: all .1s ease-in;
+
+
   cursor: pointer;
   border: none;
 
@@ -121,3 +124,19 @@ button {
 
 }
 
+
+
+// HOVER EFFECTS
+
+button:hover {
+
+  span {
+    position: absolute;
+    right: 30px;
+  }
+  
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.304);
+  scale: 1.1;
+}
+
+//  / HOVER EFFECTS
