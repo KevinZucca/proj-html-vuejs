@@ -37,7 +37,7 @@ export default {
                     </p>
                 </li>
 
-                <form  id="form">
+                <form  id="form" onsubmit="return false">
                     <div id="form-up">
                         <div id="form-name">
                             <input type="text" id="name" class="form-control" placeholder="Your Name">

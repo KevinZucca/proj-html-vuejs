@@ -65,6 +65,7 @@ export default {
 
         justify-content: center;
         flex-flow: column;
+
         text-align: center;
 
         #title-container {
