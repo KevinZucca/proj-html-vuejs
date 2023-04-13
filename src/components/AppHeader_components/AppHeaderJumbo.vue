@@ -31,9 +31,27 @@ export default {
         reloadPage() {
             window.location.reload()
         },
+
+        scrollFunction() {
+            let mybutton = document.querySelector("#myBtn");
+
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        },
+
+        topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
     },
 
     mounted() {
+        window.onscroll = () => {
+            this.scrollFunction()},
+
         setInterval(() => {
             this.nextPicture()
         }, 4000);
@@ -43,6 +61,12 @@ export default {
 
 <template>
     <div class="main-container">
+
+        <!-- SCROLL TO TOP BUTTON -->
+        <button @click="topFunction()" id="myBtn">&ShortUpArrow;</button>
+        <!-- / SCROLL TO TOP BUTTON -->
+
+
         <div id="jumbo-carousel">
             <img class="jumbo-img" :src="this.photos[maiIndex]" alt="jumbo-img">
         </div>
@@ -111,6 +135,30 @@ export default {
         position: relative;
 
         padding: 0;
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+
+            width: 80px;
+            height: 60px;
+
+            z-index: 5;
+            font-size: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.112);
+
+            background-color: white;
+            color: #ff4612;
+
+            cursor: pointer;
+
+            padding: 10px;
+            border-radius: 4px;
+
+            font-size: 30px;
+        }
 
         #jumbo-carousel {
             display: flex;
