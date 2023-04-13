@@ -38,7 +38,9 @@ export default {
                 <div id="description">
                     <p class="grey-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque expedita amet repellat sequi autem non explicabo eum nihil recusandae eius delectus placeat facilis consequatur praesentium sunt, provident repudiandae quibusdam nobis.</p>
                 </div>
-                <strong>READ MORE</strong>
+                <strong>
+                    <a href="#" class="read-more">READ MORE</a>
+                </strong>
             </div>
 
 
@@ -100,6 +102,7 @@ export default {
                 #description {
                     margin-bottom: 20px;
                 }
+
             }
 
             #percentages {
@@ -132,7 +135,6 @@ export default {
                         .filled-bar {
                             height: 100%;
                             background-color: #ff4612;
-                            
                             animation: fill 2s;
 
                             @keyframes fill {
@@ -143,6 +145,8 @@ export default {
                             }
                         }
                     }
+
+                    
                 }
             }
         }

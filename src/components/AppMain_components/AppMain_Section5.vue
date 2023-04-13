@@ -100,7 +100,7 @@ export default {
                        
                         <h3 class="title">{{ business.name }}</h3>
                         <p class="subtitle">{{ business.description }}</p>
-                        <strong>{{ business.moreInfo }}</strong>
+                        <strong><a href="#" class="read-more">{{ business.moreInfo }}</a></strong>
                     </div>
                     
                 </div>
